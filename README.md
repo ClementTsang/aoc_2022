@@ -1,6 +1,9 @@
 # aoc_2022
 
-2022 Advent of Code solutions. Very scuffed, read and use at your own peril.
+2022 Advent of Code solutions.
+
+Here be dragons - all the code in this repo is likely to be very bad, read and use at your own peril. Thou hast
+been warned...
 
 ---
 
