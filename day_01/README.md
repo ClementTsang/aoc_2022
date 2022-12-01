@@ -7,3 +7,13 @@ didn't really have to test out much of the language to get my solutions.
 
 As for my solution itself, I just went with a super lazy 3-element array representing the top three elements. I could
 have gone fancy with some other data structure but this works so ¯\\\_(ツ)\_/¯
+
+## Usage
+
+To run, install [Crystal](https://crystal-lang.org/) and run with:
+
+```bash
+crystal day_01.cr FILE_PATH
+```
+
+Omitting the file path will default to `./input.txt`.
