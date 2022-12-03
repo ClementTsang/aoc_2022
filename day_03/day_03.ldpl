@@ -1,0 +1,108 @@
+data:
+    lines is text list
+    line is text
+    fileName is text
+    argvLen is number
+    lineLen is number
+    partLen is number
+    i is number
+    c is text
+    curr is number
+    mapA is text map
+    common is text
+    newPriority is number
+    priorities is number
+
+    lineMapTwo is text map
+    mapTwo is text map
+    lineCount is number
+    newPriorityTwo is number
+    prioritiesTwo is number
+    keyList is text list
+    keyLen is number
+
+procedure:
+    sub solution
+        local data:
+            fileText is text
+        procedure:
+            load file fileName in fileText
+            split fileText by "\n" in lines
+            for each line in lines do
+                clear mapA
+                store 0 in newPriority
+                in lineCount solve lineCount + 1
+
+                get length of line in lineLen
+                in partLen solve lineLen / 2
+                
+                for i from 0 to partLen step 1 do
+                    get character at i from line in c
+                    in curr solve mapA:c + 1
+                    store curr in mapA:c
+
+                    store 1 in lineMapTwo:c
+                repeat
+
+                for i from partLen to lineLen step 1 do
+                    get character at i from line in c
+                    store mapA:c in curr
+                    if curr is greater than 0 then
+                        store c in common
+                    end if
+
+                    store 1 in lineMapTwo:c
+                repeat
+
+                get keys of lineMapTwo in keyList
+                get length of keyList in keyLen
+                for i from 0 to keyLen step 1 do
+                    store keyList:i in c
+                    in curr solve mapTwo:c + 1
+                    store curr in mapTwo:c
+                repeat
+                clear lineMapTwo
+
+                if lineCount is equal to 3 then
+                    for i from 0 to keyLen step 1 do
+                        store keyList:i in c
+                        store mapTwo:c in curr
+                        if curr is equal to 3 then
+                            get character code of c in newPriorityTwo
+                            if newPriorityTwo is greater than 90 then
+                                in newPriorityTwo solve newPriorityTwo - 97
+                                in newPriorityTwo solve newPriorityTwo + 1
+                            else
+                                in newPriorityTwo solve newPriorityTwo - 65
+                                in newPriorityTwo solve newPriorityTwo + 27
+                            end if
+                            in prioritiesTwo solve prioritiesTwo + newPriorityTwo
+                        end if
+                    repeat
+
+                    store 0 in lineCount
+                    clear mapTwo
+                end if
+
+                get character code of common in newPriority
+                if newPriority is greater than 90 then
+                    in newPriority solve newPriority - 97
+                    in newPriority solve newPriority + 1
+                else
+                    in newPriority solve newPriority - 65
+                    in newPriority solve newPriority + 27
+                end if
+                in priorities solve priorities + newPriority
+
+            repeat
+            display "Part one: " priorities lf
+            display "Part one: " prioritiesTwo lf
+    end sub
+
+    get length of argv in argvLen
+    if argvLen is equal to 0 then
+        store "input.txt" in fileName
+    else
+        store argv:0 in fileName
+    end if
+    call solution

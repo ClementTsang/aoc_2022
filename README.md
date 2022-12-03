@@ -19,7 +19,7 @@ setting this as a hard rule though, as I'll likely break it on the later days or
 | ---------------------------------------------- | -------------- | --------------------------------------- |
 | [Day 1](https://adventofcode.com/2022/day/1)   | [1](./day_01)  | [Crystal](https://crystal-lang.org/)    |
 | [Day 2](https://adventofcode.com/2022/day/2)   | [2](./day_02)  | [Fortran](https://fortran-lang.org/en/) |
-| [Day 3](https://adventofcode.com/2022/day/3)   | [3](./day_03)  | ???                                     |
+| [Day 3](https://adventofcode.com/2022/day/3)   | [3](./day_03)  | [LDPL](https://www.ldpl-lang.org/)      |
 | [Day 4](https://adventofcode.com/2022/day/4)   | [4](./day_04)  | ???                                     |
 | [Day 5](https://adventofcode.com/2022/day/5)   | [5](./day_05)  | ???                                     |
 | [Day 6](https://adventofcode.com/2022/day/6)   | [6](./day_06)  | ???                                     |

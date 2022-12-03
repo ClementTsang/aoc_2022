@@ -1,6 +1,7 @@
 # Day 2
 
-Today's solution is in Fortran.
+Today's solution is in Fortran. Not much to say really, the problem was simple enough
+for me to solve without going too deep into the language.
 
 ## Usage
 
