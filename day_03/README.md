@@ -1,7 +1,7 @@
 # Day 03
 
-Today's solution is in [LDPL](https://www.ldpl-lang.org/), a COBALT-inspired language. This was, honestly, a bit painful,
-but also interesting. The language itself has pretty good documentation, and I actually kinda liked how the COBALT-like
+Today's solution is in [LDPL](https://www.ldpl-lang.org/), a COBOL-inspired language. This was, honestly, a bit painful,
+but also interesting. The language itself has pretty good documentation, and I actually kinda liked how the COBOL-like
 syntax looked and all. But it's really verbose, and there are probably a lot of features that are either missing or I
 totally overlooked that would have made this cleaner. That said, a large part of the jank is definitely on me.
 
