@@ -21,7 +21,7 @@ setting this as a hard rule though, as I'll likely break it on the later days or
 | [Day 2](https://adventofcode.com/2022/day/2)   | [2](./day_02)  | [Fortran](https://fortran-lang.org/en/) |
 | [Day 3](https://adventofcode.com/2022/day/3)   | [3](./day_03)  | [LDPL](https://www.ldpl-lang.org/)      |
 | [Day 4](https://adventofcode.com/2022/day/4)   | [4](./day_04)  | [Forth](https://www.forth.com/forth/)   |
-| [Day 5](https://adventofcode.com/2022/day/5)   | [5](./day_05)  | ???                                     |
+| [Day 5](https://adventofcode.com/2022/day/5)   | [5](./day_05)  | [Haxe](https://haxe.org/)               |
 | [Day 6](https://adventofcode.com/2022/day/6)   | [6](./day_06)  | ???                                     |
 | [Day 7](https://adventofcode.com/2022/day/7)   | [7](./day_07)  | ???                                     |
 | [Day 8](https://adventofcode.com/2022/day/8)   | [8](./day_08)  | ???                                     |
