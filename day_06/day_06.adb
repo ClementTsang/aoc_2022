@@ -23,7 +23,6 @@ procedure Day_06 is
     Line       : Unbounded_String;
     LineLength : Natural;
     S          : Set;
-    Marker     : Natural;
 begin
     if Argument_Count > 0 then
         File_Name := To_Unbounded_String (Argument (1));
@@ -39,7 +38,6 @@ begin
         LineLength := Length (Line);
 
         for I in 1 .. (LineLength - 3) loop
-            --  Put_Line (To_String (Line) (I .. I + 3));
             S.Clear;
             S.Include (To_Unbounded_String (To_String (Line) (I .. I)));
             S.Include
@@ -50,9 +48,8 @@ begin
                (To_Unbounded_String (To_String (Line) (I + 3 .. I + 3)));
 
             if S.Length = 4 then
-                Marker := I + 3;
                 Put ("Part One: ");
-                Put (Marker);
+                Put (I + 3);
                 New_Line (1);
                 exit;
             end if;
