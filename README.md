@@ -2,16 +2,15 @@
 
 [2022 Advent of Code](https://adventofcode.com/2022) solutions.
 
-Here be dragons - all the code in this repo is likely to be very bad, read and use at your own peril. Thou hast
-been warned... ~~Copilot, are you _**sure**_ you want to train off of this code?~~
+Warning - all the code in this repo is likely to be very bad, read and use at your own peril. ~~Copilot, are you _**sure**_ you want to train off of this code?~~
 
 ---
 
-Another Advent of Code, another year where I decide to try and solve the day with a different language/tech every day
+Another Advent of Code, [another](https://github.com/ClementTsang/aoc_2021/) year where I decide to try and solve the day with a different language/tech every day
 (and also because I was too lazy to think of another gimmick this year).
 
 As another (optional) challenge, I'm going to try and select things that I've never used before as well. I'm not
-setting this as a hard rule though, as I'll likely break it on the later days or days where I'm too busy.
+setting this as a hard rule though, as there's a pretty good chance I'll break from it on the later days and/or days where I'm too busy.
 
 ## Solutions
 
