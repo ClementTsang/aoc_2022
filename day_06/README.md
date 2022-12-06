@@ -5,5 +5,10 @@ easy to work with. The thing that took the longest time was installing the forma
 
 ## Usage
 
-Install `gcc-ada`, then run `./run.sh`. As always, you can pass in the file path like `./run.sh example.txt`, or
-omit it and let it assume you're working with `input.txt`.
+Install `gcc-ada`, then run:
+
+```bash
+./run.sh example.txt
+```
+
+You can omit the file argument to default to `input.txt`.
