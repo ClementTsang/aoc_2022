@@ -1,0 +1,112 @@
+function parse_to_string(file_path: String) throws -> String {
+    mut file = File::open_for_reading(file_path)
+    mut builder = StringBuilder::create()
+    for b in file.read_all() {
+        builder.append(b)
+    }
+    return builder.to_string()
+}
+
+
+struct Layout {
+    size: i32,
+    files: Array<String>
+}
+
+function remove_folder(key: String, contents: &mut Dictionary<String, Layout>) throws {
+    contents[key].size = 0
+    for f in contents[key].files {
+        remove_folder(key: key + "/" + f, contents)
+    }
+    contents[key].files = []
+}
+
+function file_size(key: String, contents: Dictionary<String, Layout>) throws -> i32 {
+    mut subsize: i32 = 0
+    for f in contents[key].files {
+        subsize += file_size(key: key +"/" + f, contents)
+    }
+    return contents[key].size + subsize
+}
+
+function main(args: [String]) throws {
+    mut file_path = "input.txt"
+
+    if (args.size() > 1) {
+        file_path = args[1]
+    }
+        
+    println("Using file {}", file_path)
+
+    let file_data = parse_to_string(file_path)
+
+    mut dirs: Array<String> = []
+    mut contents = Dictionary<String, Layout>()
+    for line in file_data.split('\n') {
+        if line.starts_with("$") {
+            let words = line.split(' ')
+            if words[1] == "cd" {
+                let dir = words[2]
+                if dir == "/" {
+                    dirs.push("")
+                } else if dir == ".." {
+                    let _ = dirs.pop()
+                } else {
+                    dirs.push(dir)
+                }
+            }
+        } else {
+            mut key = ""
+            mut i: usize = 0
+            let len = dirs.size()
+            while (i < len) {
+                key += dirs[i]
+                i += 1
+                if i < len {
+                    key += "/"
+                }
+            }
+
+            if not contents.contains(key) {
+                contents.set(key, Layout(size: 0, files: []))
+            }
+
+            if line.starts_with("dir") {
+                contents[key].files.push(line.split(' ')[1])
+            } else {
+                contents[key].size += line.split(' ')[0].to_int()!
+            }
+        }
+    }
+
+    mut count : i32 = 0
+    for value in contents {
+        let size = file_size(key: value.0, contents)
+        if size <= 100000 {
+            count += size
+        }
+    }
+    println("Part 1: {}", count)
+
+    let total: i32 = 70000000
+    let needed: i32 = 30000000
+    mut best: i32 = total
+
+    for value in contents {
+        let key = value.0
+        let old_size = file_size(key, contents)
+
+        mut new_contents = Dictionary<String, Layout>()  
+        for v in contents {
+            new_contents.set(v.0, v.1) // Deep copy!
+        }
+
+        remove_folder(key, contents: &mut new_contents)
+        let size = file_size(key: "", contents: new_contents)
+        if (total - size) >= needed and old_size < best{
+            best = old_size
+        }
+    }
+
+    println("Part 2: {}", best)
+}
