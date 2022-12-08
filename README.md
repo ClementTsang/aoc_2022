@@ -10,7 +10,7 @@ Another Advent of Code, [another](https://github.com/ClementTsang/aoc_2021/) yea
 (and also because I was too lazy to think of another gimmick this year).
 
 As another (optional) challenge, I'm going to try and select things that I've never used before as well. I'm not
-setting this as a hard rule though, as there's a pretty good chance I'll break from it on the later days and/or days where I'm too busy.
+setting this as a hard rule though, as there's a pretty good chance I'll break from it on the later days and/or days where I'm too busy. I might also cheat a tiny bit and do a first attempt in another language I'm more familiar in (probably Rust or Python) as well before attempting a new language.
 
 ## Solutions
 
