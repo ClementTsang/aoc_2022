@@ -24,7 +24,7 @@ setting this as a hard rule though, as there's a pretty good chance I'll break f
 | [Day 6](https://adventofcode.com/2022/day/6)   | [6](./day_06)  | [Ada](https://www.adaic.org)               |
 | [Day 7](https://adventofcode.com/2022/day/7)   | [7](./day_07)  | [Jakt](https://github.com/SerenityOS/jakt) |
 | [Day 8](https://adventofcode.com/2022/day/8)   | [8](./day_08)  | [PureScript](https://www.purescript.org/)  |
-| [Day 9](https://adventofcode.com/2022/day/9)   | [9](./day_09)  | ???                                        |
+| [Day 9](https://adventofcode.com/2022/day/9)   | [9](./day_09)  | [Elixir](https://elixir-lang.org/)         |
 | [Day 10](https://adventofcode.com/2022/day/10) | [10](./day_10) | ???                                        |
 | [Day 11](https://adventofcode.com/2022/day/11) | [11](./day_11) | ???                                        |
 | [Day 12](https://adventofcode.com/2022/day/12) | [12](./day_12) | ???                                        |

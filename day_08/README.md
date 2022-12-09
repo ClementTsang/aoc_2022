@@ -4,7 +4,7 @@ Today's main solution is in PureScript. I was going to do this yesterday but it 
 
 As for working the language itself... it's alright, I guess. I've used Haskell before for school and the previous Advent of Code, as well as functional languages in general, so it wasn't too much of a jump, and I enjoy working in Haskell and similar languages. It's really satisfying to get something working, and the resulting code has an overall style that I really like ~~even if my code itself is pretty horrible~~.
 
-That said, it was a bit tricky figuring out the ecosystem and some of the syntax/docs. Examples seem very sparse as well, which isn't great when you're learning a new language and want to see how the heck they apply some function or concept in actual code - something the documentation *sorely* lacks for the most part from my experience. The tooling in VS Code was a also kinda spotty and kept crashing, which is a bit problematic for me since I often lean a bit on some compiler/editor hints when new. At least it would usually work again if I reloaded, but that's... not a good solution.
+That said, it was a bit tricky figuring out the ecosystem and some of the syntax/docs. Examples seem very sparse as well, which isn't great when you're learning a new language and want to see how the heck they apply some function or concept in actual code - something the documentation _sorely_ lacks for the most part from my experience. The tooling in VS Code was a also kinda spotty and kept crashing, which is a bit problematic for me since I often lean a bit on some compiler/editor hints when new. At least it would usually work again if I reloaded, but that's... not a good solution.
 
 Some minor gripes as well - the extension also didn't auto-format for some reason despite having options for it (I had to manually do that in the `run.sh` script each time), and adding a new dependency (which was very common at the start) required a full reload. On that note, it was... kinda weird how sometimes, the extension would have no issues with me adding a dependency, but then Spago would complain about how I never added it. It's again easy to fix, but it confused me the few times it happened.
 
@@ -20,4 +20,8 @@ To run, install [PureScript](https://www.purescript.org/), then run the `./run.s
 ./run.sh example.txt
 ```
 
-As usual, omitting the file path will just assume you mean to run it with `input.txt`.
+As usual, omitting the file path will just assume you mean to run it with `input.txt`:
+
+```bash
+./run.sh
+```
