@@ -1,0 +1,91 @@
+# File input logic based on https://github.com/addrummond/aoc_2021_algol68/blob/main/day5.a68 #
+
+# Cheat and allocate room for 2000 instructions. #
+REF FLEX[] INT instructions := HEAP FLEX [2000] INT;
+
+STRING file path := "input.txt";
+read((file path, new line));
+print(("Using input file: "));
+print((file path, new line));
+
+FILE in;
+open(in, file path, stand in channel);
+
+BOOL eol := FALSE;
+on logical file end (in, (REF FILE f) BOOL: eol := TRUE);
+on format error (in, (REF FILE f) BOOL: eol := TRUE);
+INT curr index := 0;
+
+WHILE
+    NOT eol
+DO
+    curr index +:= 1;
+
+    STRING line := "";
+    get(in, (line, newline));
+
+    CHAR first char := line[1];
+    # 
+        Let's cheat a bit. We instead convert our instructions into an array
+        of adds.
+        noop/add: 0
+        add-complete: any value
+    #
+    IF first char = "n" THEN
+        instructions[curr index] := 0;
+    ELSE
+        # Manually parse the number. #
+        INT val := 0;
+        BOOL is negative := FALSE;
+        FOR c FROM LWB line TO UPB line DO
+            IF c > 5 THEN
+                IF line[c] = "-" THEN
+                    is negative := TRUE
+                ELSE
+                    val *:= 10;
+                    val +:= ABS(line[c]) - ABS("0");
+                FI;
+            FI;
+        OD;
+
+        IF is negative THEN
+            val *:= -1;
+        FI;
+
+        instructions[curr index] := 0;
+        curr index +:= 1;
+        instructions[curr index] := val;
+    FI;
+OD;
+
+INT signal strength := 0;
+INT x register := 1;
+
+FOR i FROM 1 TO curr index DO
+    IF i = 20 OR i = 60 OR i = 100 OR i = 140 OR i = 180 OR i = 220 THEN
+        signal strength +:= x register * i;
+    FI;
+    x register +:= instructions[i];
+OD;
+
+close(in);
+
+printf(($"Part 1: ", g(0)l$, signal strength));
+
+print("Part 2: ");
+x register := 1;
+FOR i FROM 1 TO curr index DO
+    INT row index := (i - 1) MOD 40; # Zero-based #
+    IF row index = 0 THEN
+        print(new line);
+    FI;
+
+    IF row index >= x register - 1 AND row index <= x register + 1 THEN
+        print("█");
+    ELSE
+        print(" ");
+    FI;
+
+    x register +:= instructions[i];
+OD;
+print(new line);
