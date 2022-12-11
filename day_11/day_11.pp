@@ -1,8 +1,4 @@
-
-
 Program day_11;
-
-Uses StrUtils, SysUtils;
 
 { Remember that in Pascal, string indexes start at 1. }
 Function ReadStr(Var S: String): String;
