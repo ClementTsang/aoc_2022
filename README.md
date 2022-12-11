@@ -26,7 +26,7 @@ setting this as a hard rule though, as there's a pretty good chance I'll break f
 | [Day 8](https://adventofcode.com/2022/day/8)   | [8](./day_08)  | [PureScript](https://www.purescript.org/)          |
 | [Day 9](https://adventofcode.com/2022/day/9)   | [9](./day_09)  | [Elixir](https://elixir-lang.org/)                 |
 | [Day 10](https://adventofcode.com/2022/day/10) | [10](./day_10) | [ALGOL 68](https://en.wikipedia.org/wiki/ALGOL_68) |
-| [Day 11](https://adventofcode.com/2022/day/11) | [11](./day_11) | ???                                                |
+| [Day 11](https://adventofcode.com/2022/day/11) | [11](./day_11) | [Pascal](https://www.freepascal.org/)              |
 | [Day 12](https://adventofcode.com/2022/day/12) | [12](./day_12) | ???                                                |
 | [Day 13](https://adventofcode.com/2022/day/13) | [13](./day_13) | ???                                                |
 | [Day 14](https://adventofcode.com/2022/day/14) | [14](./day_14) | ???                                                |
