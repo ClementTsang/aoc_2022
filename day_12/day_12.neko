@@ -31,11 +31,11 @@ bfs = function(maze, start, end) {
         head = queue[0]
         curr = head.coords
         score = head.score
-        queue = if $asize(queue) > 1 {
-            $asub(queue, 1, $asize(queue) - 1)
-        } else {
-            $array()
-        }
+        queue = 
+            if $asize(queue) > 1
+                $asub(queue, 1, $asize(queue) - 1)
+            else 
+                $array()
 
         if curr.x == end.x && curr.y == end.y {
             if score < best
@@ -43,9 +43,8 @@ bfs = function(maze, start, end) {
             continue
         }
 
-        if visited[curr.y][curr.x] == true {
+        if visited[curr.y][curr.x] == true
             continue
-        }
 
         visited[curr.y][curr.x] = true
 
@@ -57,7 +56,6 @@ bfs = function(maze, start, end) {
         var left = { x => curr.x - 1, y => curr.y }
         var right = { x => curr.x + 1, y => curr.y }
         var dirs = $array(up, down, left, right)
-
         var i = 0
         while i < 4 {
             var dir = dirs[i]
@@ -74,7 +72,6 @@ bfs = function(maze, start, end) {
                         queue = $aconcat($array(queue, to_add))
                 }
             }
-
             i = i + 1
         }
     }
