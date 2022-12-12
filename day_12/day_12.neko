@@ -1,0 +1,163 @@
+var file_contents = $loader.loadprim("std@file_contents", 1)
+var string_split = $loader.loadprim("std@string_split", 2)
+
+var file_name =
+    if $asize($loader.args) < 1
+        "input.txt"
+    else 
+        $loader.args[0]
+
+$print("Using input file: ", file_name, "\n")
+
+bfs = function(maze, start, end) {
+    var visited = $amake($asize(maze))
+    var z = 0
+    while z < $asize(maze) {
+        var to_add = $amake($asize(maze[z]))
+        var a = 0
+        while a < $asize(maze[z]) {
+            to_add[a] = false
+            a = a + 1
+        }
+
+        visited[z] = to_add
+        z = z + 1
+    }
+
+    var best = 1000000
+    queue = $array({coords => start, score => 0})
+
+    while $asize(queue) > 0 {
+        head = queue[0]
+        curr = head.coords
+        score = head.score
+        queue = if $asize(queue) > 1 {
+            $asub(queue, 1, $asize(queue) - 1)
+        } else {
+            $array()
+        }
+
+        if curr.x == end.x && curr.y == end.y {
+            if score < best
+                best = score
+            continue
+        }
+
+        if visited[curr.y][curr.x] == true {
+            continue
+        }
+
+        visited[curr.y][curr.x] = true
+
+        var up = { x => curr.x, y => curr.y - 1 }
+        var down = { x => curr.x, y => curr.y + 1 }
+        var left = { x => curr.x - 1, y => curr.y }
+        var right = { x => curr.x + 1, y => curr.y }
+        var dirs = $array(up, down, left, right)
+
+        var i = 0
+        while i < 4 {
+            var dir = dirs[i]
+            if dir.x >= 0 && dir.x < $asize(maze[0]) && dir.y >= 0 && dir.y < $asize(maze) {
+                current_height = maze[curr.y][curr.x]
+                new_height = maze[dir.y][dir.x]
+
+                if $sget(current_height, 0) + 1 >= $sget(new_height, 0) {
+                    var to_add = $array({coords => dir, score => score + 1})
+                
+                    if $asize(queue) == 0
+                        queue = to_add
+                    else
+                        queue = $aconcat($array(queue, to_add))
+                }
+            }
+
+            i = i + 1
+        }
+    }
+
+    return best
+}
+
+string_split_arr = function(str, delim) {
+    var splits = string_split(str, delim)
+    var buffer = $amake(0)
+
+    while splits != null && splits[0] != "" {
+        var n = $array(splits[0])
+
+        if $asize(buffer) == 0
+            buffer = n
+        else
+            buffer = $aconcat($array(buffer, n))
+        splits = splits[1]
+    }
+
+    return buffer
+}
+
+parse_maze = function(str) {
+    var lines = string_split_arr(str, "\n")
+
+    var i = 0
+    var len = $asize(lines)
+    var buffer = $amake(len)
+    var start = {x => 0, y => 0}
+    var end = {x => 0, y => 0}
+    var a_list = $amake(0)
+
+    while i < len {
+        var n = string_split_arr(lines[i], "")
+        var n_len = $asize(n)
+        var j = 0
+        while j < n_len {
+            if n[j] == "S" {
+                n[j] = "a"
+                start.x = j
+                start.y = i
+            } else if n[j] == "E" {
+                n[j] = "z"
+                end.x = j
+                end.y = i
+            } 
+            
+            if n[j] == "a" {
+                if $asize(buffer) == 0
+                    a_list = $array({x => j, y => i})
+                else
+                    a_list = $aconcat($array(a_list, $array({x => j, y => i})))
+            }
+            j = j + 1
+        }
+
+        buffer[i] = n
+
+        i = i + 1
+    }
+
+    return {
+        maze => buffer,
+        start => start,
+        end => end,
+        a_list => a_list
+    }
+}
+
+var p = parse_maze(file_contents(file_name))
+var maze = p.maze
+var start = p.start
+var end = p.end
+var a_list = p.a_list
+
+$print("Part one: ", bfs(maze, start, end), "\n")
+
+var best = 100000000
+var a = 0
+var a_list_len = $asize(a_list)
+while a < a_list_len {
+    var l = bfs(maze, a_list[a], end)
+    if l < best
+        best = l
+    a = a + 1
+}
+$print("Part two: ", best, "\n")

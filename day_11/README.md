@@ -5,7 +5,7 @@ annoying. Funny how this is the second day in a row where I've had to write an i
 
 ## Usage
 
-Install [`fpc`](https://www.freepascal.org/), the Free Pascal compiler.
+Install [`fpc`](https://www.freepascal.org/), the Free Pascal compiler. Then run:
 
 ```bash
 ./run.sh example.txt
