@@ -49,6 +49,9 @@ bfs = function(maze, start, end) {
 
         visited[curr.y][curr.x] = true
 
+        if score >= best
+            continue
+
         var up = { x => curr.x, y => curr.y - 1 }
         var down = { x => curr.x, y => curr.y + 1 }
         var left = { x => curr.x - 1, y => curr.y }
