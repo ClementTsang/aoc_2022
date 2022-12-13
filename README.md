@@ -28,7 +28,7 @@ setting this as a hard rule though, as there's a pretty good chance I'll break f
 | [Day 10](https://adventofcode.com/2022/day/10) | [10](./day_10) | [ALGOL 68](https://en.wikipedia.org/wiki/ALGOL_68) |
 | [Day 11](https://adventofcode.com/2022/day/11) | [11](./day_11) | [Pascal](https://www.freepascal.org/)              |
 | [Day 12](https://adventofcode.com/2022/day/12) | [12](./day_12) | [Neko](https://nekovm.org/)                        |
-| [Day 13](https://adventofcode.com/2022/day/13) | [13](./day_13) | ???                                                |
+| [Day 13](https://adventofcode.com/2022/day/13) | [13](./day_13) | Python                                             |
 | [Day 14](https://adventofcode.com/2022/day/14) | [14](./day_14) | ???                                                |
 | [Day 15](https://adventofcode.com/2022/day/15) | [15](./day_15) | ???                                                |
 | [Day 16](https://adventofcode.com/2022/day/16) | [16](./day_16) | ???                                                |
