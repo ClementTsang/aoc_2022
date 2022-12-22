@@ -79,8 +79,6 @@ def part_two(maze, instructions):
     height = len(maze)
     width = len(maze[0])
 
-    print(f"Height: {height}, width: {width}")
-
     if height < 100:
         cube_size = 4
     else:
@@ -90,8 +88,6 @@ def part_two(maze, instructions):
         if m == 1:
             loc = (0, x)
             break
-
-    print(f"Start: {loc}")
 
     # Figure out what the numberings are.
     new_maze = []
@@ -172,18 +168,7 @@ def part_two(maze, instructions):
                     or new_loc[1] >= width
                     or new_maze[new_loc[0]][new_loc[1]][0] == 0
                 ):
-                    # print(
-                    #     f"Hit an issue; inst: {inst}, loc: {loc}, new_loc: {new_loc}, face: {curr_face}, direction: {direction}"
-                    # )
-                    # if (
-                    #     new_loc[0] >= 0
-                    #     and new_loc[0] < height
-                    #     and new_loc[1] >= 0
-                    #     and new_loc[1] < width
-                    # ):
-                    #     print(f"value: {new_maze[new_loc[0]][new_loc[1]][0]}")
                     new_face = relations[curr_face][key]
-                    print(f"{curr_face} -> {new_face}")
                     match (curr_face, new_face):
                         case (1, 6):
                             new_loc = (new_loc[1] - 50 + 150, 0)
@@ -226,8 +211,6 @@ def part_two(maze, instructions):
                             direction = 3
                         case (6, 2):
                             new_loc = (0, new_loc[1] + 100)
-                    # print(f"moved new loc: {new_loc}")
-                    # print(f"new loc val: {new_maze[new_loc[0]][new_loc[1]][0]}")
                     curr_face = new_face
                 else:
                     curr_face = new_maze[new_loc[0]][new_loc[1]][1]
@@ -246,7 +229,6 @@ def part_two(maze, instructions):
                 case "L":
                     direction = (direction - 1) % 4
 
-        print(f"inst: {inst} - loc: {loc}, direction: {direction}, face: {curr_face}")
     return 1000 * (loc[0] + 1) + 4 * (loc[1] + 1) + direction
 
 
