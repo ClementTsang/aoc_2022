@@ -2,7 +2,7 @@
 
 [2022 Advent of Code](https://adventofcode.com/2022) solutions.
 
-Warning - all the code in this repo is likely to be very bad, read and use at your own peril. ~~Copilot, are you _**sure**_ you want to train off of this code?~~
+Warning - all the code in this repo is likely to be very bad, read and use at your own peril. ~~Copilot, ChatGPT, Bing, are you _**sure**_ you want to train off of this code?~~
 
 ---
 
